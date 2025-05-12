@@ -1,0 +1,48 @@
+<svg width="800" height="300" viewBox="0 0 800 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="100%" height="100%" fill="#f9fafb" rx="8" ry="8" />
+    <text x="400" y="40" text-anchor="middle" font-size="18" fill="#111827" font-weight="bold">Crescimento de Empregos Verdes (2022-2025)</text>
+    
+    <!-- Axes -->
+    <line x1="100" y1="250" x2="700" y2="250" stroke="#d1d5db" stroke-width="2" />
+    <line x1="100" y1="250" x2="100" y2="50" stroke="#d1d5db" stroke-width="2" />
+    
+    <!-- X-axis labels -->
+    <text x="100" y="270" text-anchor="middle" font-size="14" fill="#4b5563">2022</text>
+    <text x="300" y="270" text-anchor="middle" font-size="14" fill="#4b5563">2023</text>
+    <text x="500" y="270" text-anchor="middle" font-size="14" fill="#4b5563">2024</text>
+    <text x="700" y="270" text-anchor="middle" font-size="14" fill="#4b5563">2025</text>
+    
+    <!-- Y-axis labels -->
+    <text x="90" y="250" text-anchor="end" font-size="12" fill="#4b5563">0</text>
+    <text x="90" y="200" text-anchor="end" font-size="12" fill="#4b5563">25%</text>
+    <text x="90" y="150" text-anchor="end" font-size="12" fill="#4b5563">50%</text>
+    <text x="90" y="100" text-anchor="end" font-size="12" fill="#4b5563">75%</text>
+    <text x="90" y="50" text-anchor="end" font-size="12" fill="#4b5563">100%</text>
+    
+    <!-- Grid lines -->
+    <line x1="100" y1="200" x2="700" y2="200" stroke="#e5e7eb" stroke-width="1" />
+    <line x1="100" y1="150" x2="700" y2="150" stroke="#e5e7eb" stroke-width="1" />
+    <line x1="100" y1="100" x2="700" y2="100" stroke="#e5e7eb" stroke-width="1" />
+    <line x1="100" y1="50" x2="700" y2="50" stroke="#e5e7eb" stroke-width="1" />
+    
+    <line x1="300" y1="50" x2="300" y2="250" stroke="#e5e7eb" stroke-width="1" />
+    <line x1="500" y1="50" x2="500" y2="250" stroke="#e5e7eb" stroke-width="1" />
+    <line x1="700" y1="50" x2="700" y2="250" stroke="#e5e7eb" stroke-width="1" />
+    
+    <!-- Data path with dasharray for animation -->
+    <path id="data-path" d="M100,200 L300,180 L500,120 L700,80" stroke="#10b981" stroke-width="3" fill="none" stroke-dasharray="800" stroke-dashoffset="800" />
+    
+    <!-- Data points -->
+    <circle cx="100" cy="200" r="6" fill="#10b981" />
+    <circle cx="300" cy="180" r="6" fill="#10b981" />
+    <circle cx="500" cy="120" r="6" fill="#10b981" />
+    <circle cx="700" cy="80" r="6" fill="#10b981" />
+    
+    <!-- Area under the curve for visual effect -->
+    <path d="M100,250 L100,200 L300,180 L500,120 L700,80 L700,250 Z" fill="#10b981" opacity="0.2" />
+    
+    <!-- Annotation -->
+    <text x="500" y="100" text-anchor="start" font-size="12" fill="#065f46" font-weight="bold">+1 milhão de novos</text>
+    <text x="500" y="115" text-anchor="start" font-size="12" fill="#065f46" font-weight="bold">empregos até 2030</text>
+    <line x1="500" y1="120" x2="550" y2="110" stroke="#10b981" stroke-width="1" />
+</svg>

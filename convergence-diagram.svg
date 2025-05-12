@@ -1,0 +1,45 @@
+<svg width="600" height="400" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="gradAI" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:rgb(56,189,248);stop-opacity:1" />
+            <stop offset="100%" style="stop-color:rgb(37,99,235);stop-opacity:1" />
+        </linearGradient>
+        <linearGradient id="gradSust" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:rgb(74,222,128);stop-opacity:1" />
+            <stop offset="100%" style="stop-color:rgb(34,197,94);stop-opacity:1" />
+        </linearGradient>
+        <linearGradient id="gradCria" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:rgb(250,204,21);stop-opacity:1" />
+            <stop offset="100%" style="stop-color:rgb(245,158,11);stop-opacity:1" />
+        </linearGradient>
+        <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+            <path d="M0,0 L0,6 L9,3 z" fill="#666" />
+        </marker>
+    </defs>
+    
+    <!-- Circles for each domain -->
+    <circle cx="200" cy="150" r="70" fill="url(#gradAI)" />
+    <text x="200" y="155" font-family="Arial, sans-serif" font-size="20" fill="white" text-anchor="middle">IA</text>
+    
+    <circle cx="400" cy="150" r="70" fill="url(#gradSust)" />
+    <text x="400" y="155" font-family="Arial, sans-serif" font-size="18" fill="white" text-anchor="middle">Sustentabilidade</text>
+    
+    <circle cx="300" cy="280" r="70" fill="url(#gradCria)" />
+    <text x="300" y="285" font-family="Arial, sans-serif" font-size="18" fill="white" text-anchor="middle">Criatividade</text>
+    
+    <!-- Connection lines with arrows -->
+    <path d="M260,170 Q300,200 340,170" stroke="#666" stroke-width="2" fill="none" marker-end="url(#arrow)" />
+    <text x="300" y="195" font-family="Arial, sans-serif" font-size="12" fill="#444" text-anchor="middle">IA + Sustentabilidade</text>
+    
+    <path d="M240,210 Q250,240 280,260" stroke="#666" stroke-width="2" fill="none" marker-end="url(#arrow)" />
+    <text x="235" y="235" font-family="Arial, sans-serif" font-size="12" fill="#444" text-anchor="middle" transform="rotate(-30 235,235)">IA + Criatividade</text>
+    
+    <path d="M360,260 Q350,240 320,210" stroke="#666" stroke-width="2" fill="none" marker-end="url(#arrow)" />
+    <text x="365" y="235" font-family="Arial, sans-serif" font-size="12" fill="#444" text-anchor="middle" transform="rotate(30 365,235)">Sust. + Criatividade</text>
+    
+    <text x="300" y="50" font-family="Arial, sans-serif" font-size="16" fill="#111" text-anchor="middle" font-weight="bold">Interconexões da Tríade Transformadora</text>
+    
+    <!-- Central convergence point -->
+    <circle cx="300" cy="190" r="25" fill="white" stroke="#666" stroke-width="2" />
+    <text x="300" y="190" font-family="Arial, sans-serif" font-size="10" fill="#444" text-anchor="middle" dominant-baseline="middle">Convergência</text>
+</svg>
