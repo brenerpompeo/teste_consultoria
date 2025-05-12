@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Relatório 2024: IA, Sustentabilidade e Criatividade</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-geist-mono/1.0.0/font-geist-mono.css">
+    <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        /* Adicionando estilos para prosa se não estiverem em styles.css */
+        .prose {
+            color: #374151; /* gray-700 */
+        }
+        .prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+            color: #111827; /* gray-900 */
+        }
+        .prose strong {
+            color: #111827; /* gray-900 */
+            font-weight: 600;
+        }
+        .prose a {
+            color: #2563eb; /* blue-600 */
+            text-decoration: none;
+        }
+        .prose a:hover {
+            text-decoration: underline;
+        }
+        .prose ul > li::marker {
+             color: #6b7280; /* gray-500 */
+        }
+        .prose blockquote {
+            border-left-width: 4px;
+            padding-left: 1rem;
+            font-style: italic;
+            color: #4b5563; /* gray-600 */
+        }
+        .prose blockquote p:first-of-type::before {
+            content: none;
+        }
+        .prose blockquote p:last-of-type::after {
+             content: none;
+        }
+
+        /* Ajuste para garantir que os links do menu móvel funcionem bem */
+        #mobile-menu.active {
+            display: block;
+            max-height: 500px; /* Ou altura suficiente */
+        }
+         #mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        /* Esconder SVG de fundo em telas muito pequenas se necessário */
+        @media (max-width: 640px) {
+            .report-cover-svg {
+                /* display: none; */ /* Descomente se o fundo ficar muito poluído */
+            }
+            .h-\[80vh\] {
+                min-height: 500px; /* Garante altura mínima no mobile */
+                height: auto;
+            }
+        }
+
+    </style>
+</head>
+<body class="bg-white text-gray-900">
+    <div id="zoom-blocker"></div>
+
+    <!-- Header Section -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <span class="font-geist-mono text-lg font-medium">RELATÓRIO 2024</span>
+            </div>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#introducao" class="text-sm text-gray-700 hover:text-black transition-colors">Introdução</a>
+                <a href="#ia" class="text-sm text-gray-700 hover:text-black transition-colors">IA</a>
+                <a href="#sustentabilidade" class="text-sm text-gray-700 hover:text-black transition-colors">Sustentabilidade</a>
+                <a href="#criatividade" class="text-sm text-gray-700 hover:text-black transition-colors">Criatividade</a>
+                <a href="#convergencia" class="text-sm text-gray-700 hover:text-black transition-colors">Convergência</a>
+                <a href="#recomendacoes" class="text-sm text-gray-700 hover:text-black transition-colors">Recomendações</a>
+            </nav>
+            <button id="menu-button" class="md:hidden">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
+                <a href="#introducao" class="mobile-menu-link block text-sm text-gray-700 hover:text-black transition-colors">Introdução</a>
+                <a href="#ia" class="mobile-menu-link block text-sm text-gray-700 hover:text-black transition-colors">IA</a>
+                <a href="#sustentabilidade" class="mobile-menu-link block text-sm text-gray-700 hover:text-black transition-colors">Sustentabilidade</a>
+                <a href="#criatividade" class="mobile-menu-link block text-sm text-gray-700 hover:text-black transition-colors">Criatividade</a>
+                <a href="#convergencia" class="mobile-menu-link block text-sm text-gray-700 hover:text-black transition-colors">Convergência</a>
+                <a href="#recomendacoes" class="mobile-menu-link block text-sm text-gray-700 hover:text-black transition-colors">Recomendações</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative h-[80vh] flex items-center justify-center overflow-hidden px-4">
+        <div class="absolute inset-0 z-0">
+            <svg class="report-cover-svg w-full h-full object-cover" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#f0f4f8" />
+                        <stop offset="100%" stop-color="#e5e7eb" />
+                    </linearGradient>
+                    <linearGradient id="ai-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#3b82f6" />
+                        <stop offset="100%" stop-color="#1d4ed8" />
+                    </linearGradient>
+                    <linearGradient id="sust-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#10b981" />
+                        <stop offset="100%" stop-color="#059669" />
+                    </linearGradient>
+                    <linearGradient id="crea-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#f59e0b" />
+                        <stop offset="100%" stop-color="#d97706" />
+                    </linearGradient>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#grad1)" />
+                <circle cx="35%" cy="30%" r="300" fill="url(#ai-grad)" opacity="0.1" />
+                <circle cx="70%" cy="65%" r="250" fill="url(#sust-grad)" opacity="0.1" />
+                <circle cx="25%" cy="75%" r="200" fill="url(#crea-grad)" opacity="0.1" />
+                <g opacity="0.05">
+                    <path d="M0,200 Q960,100 1920,200" stroke="#000" stroke-width="2" fill="none" />
+                    <path d="M0,400 Q960,300 1920,400" stroke="#000" stroke-width="2" fill="none" />
+                    <path d="M0,600 Q960,500 1920,600" stroke="#000" stroke-width="2" fill="none" />
+                    <path d="M0,800 Q960,700 1920,800" stroke="#000" stroke-width="2" fill="none" />
+                    <path d="M0,1000 Q960,900 1920,1000" stroke="#000" stroke-width="2" fill="none" />
+                </g>
+            </svg>
+        </div>
+        <div class="container mx-auto px-4 z-10">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="font-geist-mono text-4xl md:text-6xl font-bold mb-8" data-aos="fade-up">RELATÓRIO 2024</h1>
+                <h2 class="text-2xl md:text-4xl font-medium mb-8" data-aos="fade-up" data-aos-delay="100">A Confluência Transformadora: IA, Sustentabilidade e Criatividade</h2>
+                <p class="text-xl md:text-2xl text-gray-700 mb-12" data-aos="fade-up" data-aos-delay="200">Uma análise do futuro do trabalho e das oportunidades emergentes na interseção de forças definidoras.</p>
+                <div class="flex flex-col md:flex-row justify-center items-center gap-4" data-aos="fade-up" data-aos-delay="300">
+                    <a href="#introducao" class="px-8 py-3 bg-black text-white rounded-md hover:bg-gray-800 transition-colors">Explorar Relatório</a>
+                    <button id="download-btn" class="px-8 py-3 border border-gray-300 rounded-md hover:bg-gray-50 transition-colors flex items-center gap-2">
+                        <i data-lucide="download" class="w-5 h-5"></i>
+                        <span>Baixar PDF (Demo)</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#introducao" aria-label="Scroll down">
+                <i data-lucide="chevron-down" class="w-8 h-8 text-gray-500"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Introduction Section (Conteúdo enriquecido) -->
+    <section id="introducao" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-3xl font-bold mb-8" data-aos="fade-up">Introdução</h2>
+                <div class="prose prose-lg max-w-none">
+                    <p data-aos="fade-up" data-aos-delay="100">O cenário global está sendo rapidamente remodelado pela convergência de três forças poderosas: a <strong>Inteligência Artificial (IA)</strong>, a <strong>Sustentabilidade</strong> (cada vez mais abordada pela lente do <strong>ESG</strong> - Ambiental, Social e Governança) e a <strong>Criatividade</strong>. Este relatório examina como essa tríade está redefinindo fundamentalmente o mercado de trabalho, as estratégias empresariais e criando novas oportunidades.</p>
+                    <p data-aos="fade-up" data-aos-delay="200">Embora baseada em conceitos estabelecidos como Responsabilidade Social Corporativa e os Objetivos de Desenvolvimento Sustentável (ODS), a dinâmica atual apresenta uma urgência e uma interconexão tecnológica sem precedentes. Estamos diante de uma revolução que exige uma compreensão profunda não apenas de cada área individualmente, mas principalmente de suas interconexões e das sinergias – e tensões – que emergem de sua confluência.</p>
+                    <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 my-8" data-aos="fade-up" data-aos-delay="300">
+                        <h3 class="text-xl font-semibold mb-4">Objetivos do Relatório</h3>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Analisar as tendências e o estado atual da IA, Sustentabilidade (com foco em ESG) e Criatividade em 2024/2025.</li>
+                            <li>Identificar as sinergias e os potenciais conflitos entre essas três áreas.</li>
+                            <li>Avaliar o impacto combinado no futuro dos empregos, habilidades e modelos de negócio.</li>
+                            <li>Fornecer recomendações estratégicas para profissionais, empresas e instituições.</li>
+                        </ul>
+                    </div>
+                    <p data-aos="fade-up" data-aos-delay="400">Nosso objetivo é oferecer uma visão clara e acionável que permita aos leitores navegarem com confiança por este novo paradigma, aproveitando as oportunidades e mitigando os desafios inerentes a esta transformação.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Section (Adicionado ponto sobre ESG) -->
+    <section id="ia" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <!-- AJUSTE: gap-16 para gap-12 -->
+            <div class="flex flex-col md:flex-row gap-12">
+                <div class="md:w-1/3" data-aos="fade-right">
+                     <div class="sticky top-32">
+                        <div class="w-20 h-20 mb-6 rounded-full flex items-center justify-center bg-blue-500/10">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20 5C12.26 5 6 11.26 6 19C6 26.74 12.26 33 20 33C27.74 33 34 26.74 34 19C34 11.26 27.74 5 20 5ZM20 31C13.38 31 8 25.62 8 19C8 12.38 13.38 7 20 7C26.62 7 32 12.38 32 19C32 25.62 26.62 31 20 31Z" fill="#3b82f6"/>
+                                <path d="M20 12V21H29" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle cx="20" cy="19" r="2" fill="#3b82f6"/>
+                                <path d="M30 2L36 8M30 8L36 2" stroke="#3b82f6" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M4 32L10 38M4 38L10 32" stroke="#3b82f6" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h2 class="text-3xl font-bold mb-4">Inteligência Artificial</h2>
+                        <p class="text-gray-700">A nova fronteira da inovação e eficiência que está redefinindo o trabalho e ampliando as possibilidades humanas.</p>
+                    </div>
+                </div>
+                <div class="md:w-2/3">
+                    <div class="prose prose-lg max-w-none">
+                        <h3 class="text-2xl font-semibold mb-6" data-aos="fade-up">O Estado da IA em 2024</h3>
+                        <p data-aos="fade-up" data-aos-delay="100">A Inteligência Artificial (IA) continua sua rápida evolução, impactando múltiplos setores:</p>
+                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8" data-aos="fade-up" data-aos-delay="200">
+                           <div class="bg-white p-6 rounded-lg border border-gray-200 hover:shadow-md transition-shadow">
+                                <div class="flex items-center mb-4">
+                                    <i data-lucide="sparkles" class="w-5 h-5 mr-2 text-blue-600"></i>
+                                    <h4 class="text-lg font-semibold">IA Generativa</h4>
+                                </div>
+                                <p class="text-gray-700 text-base">Democratização da criação de conteúdo, código e design, acelerando prototipagem e inovação.</p>
+                            </div>
+                            <div class="bg-white p-6 rounded-lg border border-gray-200 hover:shadow-md transition-shadow">
+                                <div class="flex items-center mb-4">
+                                    <i data-lucide="database" class="w-5 h-5 mr-2 text-blue-600"></i>
+                                    <h4 class="text-lg font-semibold">Machine Learning e Big Data</h4>
+                                </div>
+                                <p class="text-gray-700 text-base">Análise avançada de dados para insights preditivos, personalização e otimização de decisões.</p>
+                            </div>
+                            <div class="bg-white p-6 rounded-lg border border-gray-200 hover:shadow-md transition-shadow">
+                                <div class="flex items-center mb-4">
+                                    <i data-lucide="settings" class="w-5 h-5 mr-2 text-blue-600"></i>
+                                    <h4 class="text-lg font-semibold">Automação Inteligente</h4>
+                                </div>
+                                <p class="text-gray-700 text-base">Otimização de processos repetitivos e complexos, liberando humanos para tarefas estratégicas.</p>
+                            </div>
+                             <!-- NOVO CARD: IA para ESG -->
+                            <div class="bg-white p-6 rounded-lg border border-gray-200 hover:shadow-md transition-shadow">
+                                <div class="flex items-center mb-4">
+                                    <i data-lucide="shield-check" class="w-5 h-5 mr-2 text-blue-600"></i>
+                                    <h4 class="text-lg font-semibold">IA para Análise ESG</h4>
+                                </div>
+                                <p class="text-gray-700 text-base">Processamento de grandes volumes de dados para monitoramento ambiental, análise de riscos sociais e otimização de relatórios de sustentabilidade.</p>
+                            </div>
+                        </div>
+
+                        <h3 class="text-2xl font-semibold mb-6" data-aos="fade-up">Impacto no Mercado de Trabalho</h3>
+                        <p data-aos="fade-up" data-aos-delay="100">A IA está remodelando profissões e demandando novas competências:</p>
+                        <ul class="list-disc pl-6 space-y-4 my-8" data-aos="fade-up" data-aos-delay="200">
+                             <li>
+                                <strong>Transformação de Funções:</strong> Automação de tarefas, exigindo foco humano em estratégia, criatividade, empatia e supervisão ética da IA.
+                            </li>
+                            <li>
+                                <strong>Novas Profissões:</strong> Engenheiro de Prompt, Especialista em Ética de IA, Analista de Dados ESG com IA, Curador de Dados para IA, Gerente de Produto de IA.
+                            </li>
+                             <li>
+                                <strong>Aumento da Produtividade:</strong> Ganhos de eficiência em múltiplos setores, mas com necessidade de gestão da mudança e requalificação.
+                            </li>
+                            <li>
+                                <strong>Demanda por Qualificação Contínua:</strong> Urgência de *reskilling* e *upskilling* em ferramentas de IA, análise de dados, pensamento crítico e habilidades socioemocionais.
+                            </li>
+                        </ul>
+                        <!-- Exemplos de Campanhas mantidos -->
+                         <div class="bg-blue-50 p-6 rounded-lg border border-blue-100 my-8" data-aos="fade-up" data-aos-delay="300">
+                             <h4 class="text-lg font-semibold mb-4">Exemplos de Campanhas de Sucesso com IA</h4>
+                             <div class="space-y-4">
+                                 <div>
+                                     <strong class="text-blue-700">Orange Telecom:</strong> Utilizou deepfake para promover a seleção feminina de futebol da França, substituindo os rostos das jogadoras por jogadores famosos com IA, destacando o talento feminino e questionando a igualdade de gênero no esporte.
+                                 </div>
+                                 <div>
+                                     <strong class="text-blue-700">Pedigree:</strong> Criou a campanha "Adoptable", transformando fotos de cães para adoção em imagens de alta qualidade com IA, aumentando o impacto social da marca ao facilitar a adoção de animais.
+                                 </div>
+                             </div>
+                         </div>
+                        <blockquote class="italic border-l-4 border-blue-500 pl-4 my-8" data-aos="fade-up" data-aos-delay="400">
+                            "A IA é uma ferramenta poderosa que amplifica a capacidade humana. Seu verdadeiro potencial se realiza quando combinada com a intenção, a ética e a criatividade."
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sustainability Section (Conteúdo significativamente enriquecido e corrigido) -->
+    <section id="sustentabilidade" class="py-20">
+        <div class="container mx-auto px-4">
+             <!-- AJUSTE: gap-16 para gap-12 -->
+            <div class="flex flex-col md:flex-row gap-12">
+                <div class="md:w-1/3" data-aos="fade-right">
+                     <div class="sticky top-32">
+                         <div class="w-20 h-20 mb-6 rounded-full flex items-center justify-center bg-green-500/10">
+                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                 <path d="M20 6C13.4 6 8 11.4 8 18C8 24.6 13.4 30 20 30C26.6 30 32 24.6 32 18C32 11.4 26.6 6 20 6Z" stroke="#10b981" stroke-width="2"/>
+                                 <path d="M15 18C15 15.2 17.2 13 20 13C22.8 13 25 15.2 25 18" stroke="#10b981" stroke-width="2" stroke-linecap="round"/>
+                                 <path d="M15 24C15 21.2 17.2 19 20 19C22.8 19 25 21.2 25 24" stroke="#10b981" stroke-width="2" stroke-linecap="round"/>
+                                 <path d="M8 34L12 38M12 34L8 38" stroke="#10b981" stroke-width="2" stroke-linecap="round"/>
+                                 <path d="M28 34L32 38M32 34L28 38" stroke="#10b981" stroke-width="2" stroke-linecap="round"/>
+                             </svg>
+                         </div>
+                         <h2 class="text-3xl font-bold mb-4">Sustentabilidade & ESG</h2>
+                         <p class="text-gray-700">O imperativo estratégico que integra fatores Ambientais, Sociais e de Governança (ESG) na gestão, redefinindo modelos de negócio e oportunidades.</p>
+                     </div>
+                </div>
+                <div class="md:w-2/3">
+                    <div class="prose prose-lg max-w-none">
+                        <h3 class="text-2xl font-semibold mb-6" data-aos="fade-up">A Ascensão da Agenda ESG</h3>
+                        <p data-aos="fade-up" data-aos-delay="100">A sustentabilidade, cada vez mais operacionalizada através de critérios <strong>ESG (Ambiental, Social e de Governança)</strong>, deixou de ser uma preocupação periférica para se tornar central nas estratégias de negócios, impulsionada por investidores, consumidores e regulações.</p>
+                        <p data-aos="fade-up" data-aos-delay="150">Originado no mercado financeiro (relatório "Who Cares Wins", 2004) como evolução da Responsabilidade Social Corporativa, o ESG foca na identificação de riscos e oportunidades que podem impactar a performance financeira e a resiliência das empresas a longo prazo. [2, 3]</p>
+
+                        <!-- Gráfico mantido -->
+                         <div class="my-8" data-aos="fade-up" data-aos-delay="200">
+                             <svg id="sustainability-chart" width="100%" height="300" viewBox="0 0 800 300" fill="none" xmlns="http://www.w3.org/2000/svg" aria-labelledby="chartTitle chartDesc" role="img">
+                                 <title id="chartTitle">Gráfico de Crescimento Projetado de Empregos Verdes</title>
+                                 <desc id="chartDesc">Gráfico de linha mostrando uma curva ascendente de 2022 a 2030, com anotação sobre potencial de milhões de novos empregos verdes no Brasil.</desc>
+                                 <rect width="100%" height="100%" fill="#f9fafb" rx="8" ry="8" />
+                                <text x="400" y="40" text-anchor="middle" font-size="18" fill="#111827" font-weight="bold">Crescimento Projetado de Empregos Verdes</text>
+                                <line x1="100" y1="250" x2="700" y2="250" stroke="#d1d5db" stroke-width="2" />
+                                <line x1="100" y1="250" x2="100" y2="50" stroke="#d1d5db" stroke-width="2" />
+                                <text x="100" y="270" text-anchor="middle" font-size="14" fill="#4b5563">Início</text>
+                                <text x="700" y="270" text-anchor="middle" font-size="14" fill="#4b5563">2030</text>
+                                <text x="90" y="250" text-anchor="end" font-size="12" fill="#4b5563">0</text>
+                                <text x="90" y="80" text-anchor="end" font-size="12" fill="#4b5563">+ Milhões</text>
+                                <line x1="100" y1="80" x2="700" y2="80" stroke="#e5e7eb" stroke-width="1" />
+                                <path id="data-path" d="M100,200 C300,180 500,120 700,80" stroke="#10b981" stroke-width="3" fill="none" stroke-dasharray="800" stroke-dashoffset="800" style="animation: dash 2s ease-in-out forwards; animation-delay: 0.5s;"/>
+                                <circle cx="100" cy="200" r="6" fill="#10b981" />
+                                <circle cx="700" cy="80" r="6" fill="#10b981" />
+                                <path d="M100,250 L100,200 C300,180 500,120 700,80 L700,250 Z" fill="url(#sust-grad)" opacity="0.2" />
+                                <text x="450" y="100" text-anchor="start" font-size="12" fill="#065f46" font-weight="bold">Estimativa ONU:</text>
+                                <text x="450" y="115" text-anchor="start" font-size="12" fill="#065f46" font-weight="bold">+7 milhões no Brasil até 2030 [5]</text>
+                                <line x1="500" y1="120" x2="550" y2="110" stroke="#10b981" stroke-width="1" />
+                             </svg>
+                         </div>
+
+                        <h3 class="text-2xl font-semibold mb-6" data-aos="fade-up">Tendências-Chave ESG para 2024/2025</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8" data-aos="fade-up" data-aos-delay="100">
+                            <div class="bg-white p-6 rounded-lg border border-gray-200 hover:shadow-md transition-shadow">
+                                <div class="flex items-center mb-4">
+                                    <i data-lucide="activity" class="w-5 h-5 mr-2 text-green-600"></i>
+                                    <h4 class="text-lg font-semibold">Integração Estratégica e Materialidade</h4>
+                                </div>
+                                <p class="text-gray-700">Foco em identificar e gerenciar os fatores ESG *materiais* (mais relevantes) para cada setor, integrando-os à estratégia central do negócio. [10]</p>
+                            </div>
+                            <div class="bg-white p-6 rounded-lg border border-gray-200 hover:shadow-md transition-shadow">
+                                <div class="flex items-center mb-4">
+                                    <i data-lucide="recycle" class="w-5 h-5 mr-2 text-green-600"></i>
+                                    <h4 class="text-lg font-semibold">Economia Circular e Transição Energética</h4>
+                                </div>
+                                <p class="text-gray-700">Aceleração da busca por modelos de negócio circulares e investimentos em energias renováveis e eficiência energética.</p>
+                            </div>
+                             <div class="bg-white p-6 rounded-lg border border-gray-200 hover:shadow-md transition-shadow">
+                                <div class="flex items-center mb-4">
+                                    <i data-lucide="scale" class="w-5 h-5 mr-2 text-green-600"></i>
+                                    <h4 class="text-lg font-semibold">Regulação e Transparência Crescentes</h4>
+                                </div>
+                                <p class="text-gray-700">Aumento das exigências por relatórios de sustentabilidade padronizados (ex: tendências como CSRD na UE, IFRS S1/S2) e combate rigoroso ao *greenwashing*. [10]</p>
+                            </div>
+                            <div class="bg-white p-6 rounded-lg border border-gray-200 hover:shadow-md transition-shadow">
+                                <div class="flex items-center mb-4">
+                                    <i data-lucide="leaf" class="w-5 h-5 mr-2 text-green-600"></i>
+                                     <h4 class="text-lg font-semibold">Foco em Biodiversidade e Capital Natural</h4>
+                                </div>
+                                <p class="text-gray-700">Maior atenção aos impactos e dependências das empresas em relação à biodiversidade, com frameworks emergentes como o TNFD.</p>
+                            </div>
+                        </div>
+
+                        <h3 class="text-2xl font-semibold mb-6" data-aos="fade-up">Impacto nos Empregos e Habilidades</h3>
+                        <!-- Bloco Corrigido e Atualizado -->
+                        <div class="bg-green-50 p-6 rounded-lg border border-green-100 my-8" data-aos="fade-up" data-aos-delay="200">
+                            <h4 class="text-lg font-semibold mb-4">Demanda por Habilidades Verdes e ESG</h4>
+                            <p class="mb-4">A transição para uma economia mais sustentável impulsiona a criação de "empregos verdes" e, crucialmente, a demanda por "habilidades verdes" (*green skills*) em diversas profissões existentes. [1, 7]</p>
+                            <ul class="list-disc pl-6 space-y-2 text-gray-800">
+                                <li>Estimativas indicam um potencial de mais de 7 milhões de empregos verdes no Brasil até 2030 (ONU). [5]</li>
+                                <li>Em 2023, o Brasil já contava com cerca de 1.57 milhões de empregos em energias renováveis (IRENA/ILO). [1]</li>
+                                <li>Globalmente, profissionais com *green skills* têm maior probabilidade de contratação (LinkedIn reporta +54% globalmente). [2, 8]</li>
+                                <li>A demanda por especialistas em ESG, análise de dados de sustentabilidade, finanças sustentáveis e economia circular está em alta. [6, 7, 12]</li>
+                            </ul>
+                            <p class="mt-4">Isso exige *upskilling* e *reskilling* em larga escala, integrando conhecimentos de sustentabilidade, análise de dados ESG e gestão de impacto em diversas áreas.</p>
+                        </div>
+
+                        <ul class="list-disc pl-6 space-y-4 mt-8" data-aos="fade-up" data-aos-delay="300">
+                             <li>
+                                <strong>Integração Transversal:</strong> Competências ESG tornam-se necessárias para profissionais de finanças, marketing, operações, RH, P&D, e não apenas para especialistas em sustentabilidade. [12]
+                            </li>
+                            <li>
+                                <strong>Novas Funções Emergentes:</strong> Analista de Materialidade ESG, Especialista em Relatórios de Sustentabilidade (GRI/SASB/IFRS S), Gerente de Economia Circular, Especialista em Finanças Sustentáveis, Analista de Riscos Climáticos. [10]
+                            </li>
+                             <li>
+                                <strong>Desafio da Qualificação:</strong> A oferta de profissionais com as *green skills* necessárias ainda não acompanha a crescente demanda do mercado. [8]
+                            </li>
+                        </ul>
+
+                        <blockquote class="italic border-l-4 border-green-500 pl-4 my-8" data-aos="fade-up" data-aos-delay="400">
+                            "A sustentabilidade impulsionada pelo ESG não é mais apenas 'fazer o bem', é uma lente estratégica essencial para a resiliência, inovação e relevância de longo prazo."
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Creativity Section -->
+    <section id="criatividade" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <!-- AJUSTE: gap-16 para gap-12 -->
+            <div class="flex flex-col md:flex-row gap-12">
+                 <div class="md:w-1/3" data-aos="fade-right">
+                     <div class="sticky top-32">
+                         <div class="w-20 h-20 mb-6 rounded-full flex items-center justify-center bg-amber-500/10">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20 8C14.48 8 10 12.48 10 18C10 20.97 11.24 23.64 13.22 25.45C14.52 26.72 15 28.48 15 30V32C15 32.55 15.45 33 16 33H24C24.55 33 25 32.55 25 32V30C25 28.48 25.48 26.72 26.78 25.45C28.76 23.64 30 20.97 30 18C30 12.48 25.52 8 20 8Z" stroke="#f59e0b" stroke-width="2"/>
+                                <path d="M16 36H24" stroke="#f59e0b" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M20 4V5" stroke="#f59e0b" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M9 9L10 10" stroke="#f59e0b" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M31 9L30 10" stroke="#f59e0b" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M6 18H5" stroke="#f59e0b" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M35 18H34" stroke="#f59e0b" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h2 class="text-3xl font-bold mb-4">Criatividade Humana</h2>
+                        <p class="text-gray-700">O diferencial insubstituível na era da IA, motor da inovação, solução de problemas complexos e conexão com propósito.</p>
+                    </div>
+                 </div>
+                 <div class="md:w-2/3">
+                    <div class="prose prose-lg max-w-none">
+                         <h3 class="text-2xl font-semibold mb-6" data-aos="fade-up">A Essência da Criatividade em 2024</h3>
+                        <p data-aos="fade-up" data-aos-delay="100">Enquanto a IA automatiza e otimiza, a criatividade humana - abrangendo pensamento inovador, resolução complexa de problemas, inteligência emocional e comunicação - torna-se ainda mais valiosa.</p>
+                         <!-- Tabela mantida -->
+                         <div class="my-8 overflow-x-auto" data-aos="fade-up" data-aos-delay="200">
+                            <table class="min-w-full border border-gray-200 text-sm md:text-base">
+                                <thead>
+                                    <tr class="bg-amber-50">
+                                        <th class="px-4 md:px-6 py-3 border-b border-gray-200 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">Habilidade Criativa</th>
+                                        <th class="px-4 md:px-6 py-3 border-b border-gray-200 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">Descrição</th>
+                                        <th class="px-4 md:px-6 py-3 border-b border-gray-200 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">Aplicação no Trabalho</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white">
+                                    <tr>
+                                        <td class="px-4 md:px-6 py-4 whitespace-nowrap border-b border-gray-200 font-medium">Pensamento Inovador</td>
+                                        <td class="px-4 md:px-6 py-4 whitespace-normal border-b border-gray-200">Capacidade de gerar ideias originais e soluções não convencionais.</td>
+                                        <td class="px-4 md:px-6 py-4 whitespace-normal border-b border-gray-200">Desenvolvimento de produtos, otimização de processos.</td>
+                                    </tr>
+                                    <tr class="bg-gray-50">
+                                        <td class="px-4 md:px-6 py-4 whitespace-nowrap border-b border-gray-200 font-medium">Resolução Complexa de Problemas</td>
+                                        <td class="px-4 md:px-6 py-4 whitespace-normal border-b border-gray-200">Habilidade de identificar e solucionar problemas multifacetados.</td>
+                                        <td class="px-4 md:px-6 py-4 whitespace-normal border-b border-gray-200">Gestão de projetos, consultoria, liderança.</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-4 md:px-6 py-4 whitespace-nowrap border-b border-gray-200 font-medium">Pensamento Crítico</td>
+                                        <td class="px-4 md:px-6 py-4 whitespace-normal border-b border-gray-200">Analisar informações objetivamente para formar julgamentos.</td>
+                                        <td class="px-4 md:px-6 py-4 whitespace-normal border-b border-gray-200">Tomada de decisão, estratégia.</td>
+                                    </tr>
+                                    <tr class="bg-gray-50">
+                                        <td class="px-4 md:px-6 py-4 whitespace-nowrap border-b border-gray-200 font-medium">Inteligência Emocional</td>
+                                        <td class="px-4 md:px-6 py-4 whitespace-normal border-b border-gray-200">Compreender e gerenciar emoções próprias e alheias.</td>
+                                        <td class="px-4 md:px-6 py-4 whitespace-normal border-b border-gray-200">Liderança, trabalho em equipe, atendimento ao cliente.</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-4 md:px-6 py-4 whitespace-nowrap font-medium">Comunicação Efetiva</td>
+                                        <td class="px-4 md:px-6 py-4 whitespace-normal">Transmitir ideias de forma clara e persuasiva.</td>
+                                        <td class="px-4 md:px-6 py-4 whitespace-normal">Marketing, vendas, gestão, educação.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h3 class="text-2xl font-semibold mb-6" data-aos="fade-up">Tendências Criativas</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8" data-aos="fade-up" data-aos-delay="100">
+                             <div class="bg-white p-6 rounded-lg border border-gray-200 hover:shadow-md transition-shadow">
+                                <div class="flex items-center mb-4">
+                                    <i data-lucide="trending-up" class="w-5 h-5 mr-2 text-amber-600"></i>
+                                    <h4 class="text-lg font-semibold">Expansão da Economia Criativa</h4>
+                                </div>
+                                <p class="text-gray-700 text-base">Crescimento de setores como design, publicidade, artes, moda e games, impulsionado por plataformas digitais.</p>
+                            </div>
+                            <div class="bg-white p-6 rounded-lg border border-gray-200 hover:shadow-md transition-shadow">
+                                <div class="flex items-center mb-4">
+                                    <i data-lucide="bot" class="w-5 h-5 mr-2 text-amber-600"></i>
+                                    <h4 class="text-lg font-semibold">Cocriação Humano-IA</h4>
+                                </div>
+                                <p class="text-gray-700 text-base">Uso da IA como parceira na ideação, prototipagem e execução, mas com a visão estratégica, ética e originalidade guiadas pelo humano.</p>
+                            </div>
+                             <div class="bg-white p-6 rounded-lg border border-gray-200 hover:shadow-md transition-shadow">
+                                <div class="flex items-center mb-4">
+                                    <i data-lucide="heart" class="w-5 h-5 mr-2 text-amber-600"></i>
+                                    <h4 class="text-lg font-semibold">Autenticidade e Propósito ESG</h4>
+                                </div>
+                                <p class="text-gray-700 text-base">Marcas e talentos buscam conexões genuínas e trabalho com significado, alinhado a valores e impacto socioambiental positivo (ESG).</p>
+                            </div>
+                             <div class="bg-white p-6 rounded-lg border border-gray-200 hover:shadow-md transition-shadow">
+                                <div class="flex items-center mb-4">
+                                    <i data-lucide="users" class="w-5 h-5 mr-2 text-amber-600"></i>
+                                    <h4 class="text-lg font-semibold">Criação Colaborativa</h4>
+                                </div>
+                                <p class="text-gray-700 text-base">Cocriação e maior colaboração entre profissionais e com o público para desenvolver soluções inovadoras.</p>
+                            </div>
+                        </div>
+
+                         <!-- Novas Estéticas mantidas -->
+                        <h3 class="text-2xl font-semibold mb-6" data-aos="fade-up">Novas Estéticas em 2024</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 my-8" data-aos="fade-up" data-aos-delay="200">
+                            <div class="bg-white overflow-hidden rounded-lg border border-gray-200">
+                                <div class="h-40 bg-amber-100 flex items-center justify-center">
+                                    <div class="relative w-full h-full overflow-hidden">
+                                        <div class="absolute w-16 h-16 bg-amber-400 rounded-full top-4 left-8"></div>
+                                        <div class="absolute w-12 h-12 bg-blue-400 rounded-sm top-12 left-20 rotate-12"></div>
+                                        <div class="absolute w-20 h-20 border-2 border-gray-800 top-8 right-10"></div>
+                                        <div class="absolute w-8 h-14 bg-green-300 rounded-full bottom-4 left-16"></div>
+                                    </div>
+                                </div>
+                                <div class="p-4">
+                                    <h5 class="font-semibold">Motion Collage</h5>
+                                    <p class="text-sm text-gray-600">Animações visuais dinâmicas com elementos em movimento, inspiradas na cultura zine.</p>
+                                </div>
+                            </div>
+                            <div class="bg-white overflow-hidden rounded-lg border border-gray-200">
+                                <div class="h-40 bg-blue-100 flex items-center justify-center">
+                                    <div class="relative w-full h-full overflow-hidden">
+                                        <div class="absolute w-24 h-24 bg-blue-200 rounded-full top-2 left-8 animate-pulse"></div>
+                                        <div class="absolute w-20 h-20 bg-blue-300 rounded-full top-6 left-16 animate-pulse" style="animation-delay: 0.2s"></div>
+                                        <div class="absolute w-16 h-16 bg-blue-400 rounded-full top-10 left-24 animate-pulse" style="animation-delay: 0.4s"></div>
+                                        <div class="absolute w-12 h-12 bg-blue-500 rounded-full top-14 left-32 animate-pulse" style="animation-delay: 0.6s"></div>
+                                    </div>
+                                </div>
+                                <div class="p-4">
+                                    <h5 class="font-semibold">Fluxo e Forma</h5>
+                                    <p class="text-sm text-gray-600">Combinação de formas geométricas e orgânicas para criar designs abstratos e dinâmicos.</p>
+                                </div>
+                            </div>
+                            <div class="bg-white overflow-hidden rounded-lg border border-gray-200">
+                                <div class="h-40 bg-purple-100 flex items-center justify-center">
+                                   <div class="grid grid-cols-3 gap-1 p-4">
+                                        <div class="w-10 h-10 bg-purple-600"></div><div class="w-10 h-10 bg-indigo-600"></div><div class="w-10 h-10 bg-blue-600"></div>
+                                        <div class="w-10 h-10 bg-purple-500"></div><div class="w-10 h-10 bg-indigo-500"></div><div class="w-10 h-10 bg-blue-500"></div>
+                                        <div class="w-10 h-10 bg-purple-400"></div><div class="w-10 h-10 bg-indigo-400"></div><div class="w-10 h-10 bg-blue-400"></div>
+                                   </div>
+                                </div>
+                                <div class="p-4">
+                                    <h5 class="font-semibold">Pixelização</h5>
+                                    <p class="text-sm text-gray-600">Inspirada nos videogames clássicos de 8 bits, evocando nostalgia através de grids e pixel art.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-amber-50 p-6 rounded-lg border border-amber-100 my-8" data-aos="fade-up" data-aos-delay="300">
+                            <h4 class="text-lg font-semibold mb-4">Impacto no Mercado de Trabalho Criativo</h4>
+                            <ul class="list-disc pl-6 space-y-3">
+                                <li>
+                                    <strong>Criatividade como *meta-habilidade*:</strong> Valorizada em todas as funções, não só nas tradicionalmente criativas.
+                                </li>
+                                <li>
+                                    <strong>Adaptação e Colaboração com IA:</strong> Profissionais criativos precisam dominar IA como ferramenta, focando em gerar valor que a máquina não pode replicar (conceito, estratégia, emoção).
+                                </li>
+                                <li>
+                                    <strong>Valorização de Soft Skills:</strong> Pensamento crítico, comunicação, colaboração e inteligência emocional tornam-se diferenciais cruciais.
+                                </li>
+                                 <li>
+                                    <strong>Conexão com Propósito:</strong> Habilidade de traduzir valores (incluindo ESG) em narrativas e experiências criativas autênticas.
+                                </li>
+                            </ul>
+                        </div>
+
+                         <blockquote class="italic border-l-4 border-amber-500 pl-4 my-8" data-aos="fade-up" data-aos-delay="400">
+                            "O futuro pertence àqueles que aprendem mais habilidades e as combinam de maneiras criativas." — Robert Greene
+                        </blockquote>
+                    </div>
+                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Convergence Section (Conteúdo enriquecido, especialmente nos conflitos) -->
+    <section id="convergencia" class="py-20 bg-gradient-to-b from-white to-gray-50">
+        <div class="container mx-auto px-4">
+             <div class="max-w-4xl mx-auto mb-16 text-center" data-aos="fade-up">
+                <h2 class="text-3xl font-bold mb-6">A Tríade Transformadora: Sinergias e Tensões</h2>
+                <p class="text-xl text-gray-700">A verdadeira revolução emerge da interação complexa entre IA, Sustentabilidade (ESG) e Criatividade.</p>
+            </div>
+
+             <!-- Diagrama mantido, AJUSTE: my-16 para my-12 -->
+            <div class="relative my-12 h-[400px]" data-aos="fade-up" data-aos-delay="100">
+                 <svg id="convergence-diagram" width="100%" height="100%" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg" aria-labelledby="diagramTitle diagramDesc" role="graphics-document">
+                    <title id="diagramTitle">Diagrama de Convergência IA, Sustentabilidade, Criatividade</title>
+                    <desc id="diagramDesc">Três círculos representando IA, Sustentabilidade e Criatividade se sobrepõem parcialmente, com linhas indicando as sinergias entre pares e um ponto central de convergência.</desc>
+                    <defs>
+                        <linearGradient id="gradAI" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color:rgb(56,189,248);stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:rgb(37,99,235);stop-opacity:1" />
+                        </linearGradient>
+                        <linearGradient id="gradSust" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color:rgb(74,222,128);stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:rgb(34,197,94);stop-opacity:1" />
+                        </linearGradient>
+                        <linearGradient id="gradCria" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color:rgb(250,204,21);stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:rgb(245,158,11);stop-opacity:1" />
+                        </linearGradient>
+                        <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+                            <path d="M0,0 L0,6 L9,3 z" fill="#666" />
+                        </marker>
+                    </defs>
+                    <circle id="ai-circle" cx="200" cy="150" r="70" fill="url(#gradAI)" opacity="0">
+                        <animate attributeName="opacity" values="0;1" dur="1s" begin="0.2s" fill="freeze" />
+                    </circle>
+                    <text id="ai-text" x="200" y="155" font-family="Inter, sans-serif" font-size="20" fill="white" text-anchor="middle" opacity="0">IA
+                        <animate attributeName="opacity" values="0;1" dur="0.5s" begin="0.6s" fill="freeze" />
+                    </text>
+                    <circle id="sust-circle" cx="400" cy="150" r="70" fill="url(#gradSust)" opacity="0">
+                        <animate attributeName="opacity" values="0;1" dur="1s" begin="0.4s" fill="freeze" />
+                    </circle>
+                    <text id="sust-text" x="400" y="155" font-family="Inter, sans-serif" font-size="16" fill="white" text-anchor="middle" opacity="0">Sustentabilidade
+                        <animate attributeName="opacity" values="0;1" dur="0.5s" begin="0.8s" fill="freeze" />
+                    </text>
+                    <circle id="crea-circle" cx="300" cy="280" r="70" fill="url(#gradCria)" opacity="0">
+                        <animate attributeName="opacity" values="0;1" dur="1s" begin="0.6s" fill="freeze" />
+                    </circle>
+                    <text id="crea-text" x="300" y="285" font-family="Inter, sans-serif" font-size="18" fill="white" text-anchor="middle" opacity="0">Criatividade
+                        <animate attributeName="opacity" values="0;1" dur="0.5s" begin="1s" fill="freeze" />
+                    </text>
+                    <path id="line1" d="M260,170 Q300,200 340,170" stroke="#666" stroke-width="2" fill="none" opacity="0" marker-end="url(#arrow)">
+                        <animate attributeName="opacity" values="0;1" dur="0.5s" begin="1.2s" fill="freeze" />
+                    </path>
+                    <text id="synergy1" x="300" y="195" font-family="Inter, sans-serif" font-size="12" fill="#444" text-anchor="middle" opacity="0">IA + Sustentabilidade
+                        <animate attributeName="opacity" values="0;1" dur="0.5s" begin="1.4s" fill="freeze" />
+                    </text>
+                    <path id="line2" d="M240,210 Q250,240 280,260" stroke="#666" stroke-width="2" fill="none" opacity="0" marker-end="url(#arrow)">
+                        <animate attributeName="opacity" values="0;1" dur="0.5s" begin="1.6s" fill="freeze" />
+                    </path>
+                    <text id="synergy2" x="235" y="235" font-family="Inter, sans-serif" font-size="12" fill="#444" text-anchor="middle" opacity="0" transform="rotate(-30 235,235)">IA + Criatividade
+                        <animate attributeName="opacity" values="0;1" dur="0.5s" begin="1.8s" fill="freeze" />
+                    </text>
+                    <path id="line3" d="M360,260 Q350,240 320,210" stroke="#666" stroke-width="2" fill="none" opacity="0" marker-end="url(#arrow)">
+                        <animate attributeName="opacity" values="0;1" dur="0.5s" begin="2s" fill="freeze" />
+                    </path>
+                    <text id="synergy3" x="365" y="235" font-family="Inter, sans-serif" font-size="12" fill="#444" text-anchor="middle" opacity="0" transform="rotate(30 365,235)">Sust. + Criatividade
+                        <animate attributeName="opacity" values="0;1" dur="0.5s" begin="2.2s" fill="freeze" />
+                    </text>
+                    <text id="diagram-title-main" x="300" y="50" font-family="Inter, sans-serif" font-size="16" fill="#111" text-anchor="middle" font-weight="bold" opacity="0">Interconexões da Tríade Transformadora
+                        <animate attributeName="opacity" values="0;1" dur="0.5s" begin="2.4s" fill="freeze" />
+                    </text>
+                    <circle id="intersection" cx="300" cy="210" r="30" fill="white" stroke="#666" stroke-width="2" opacity="0"> <!-- Ajuste Y e Raio para melhor encaixe -->
+                        <animate attributeName="opacity" values="0;1" dur="0.5s" begin="2.6s" fill="freeze" />
+                    </circle>
+                    <text id="intersection-text" x="300" y="210" font-family="Inter, sans-serif" font-size="10" fill="#444" text-anchor="middle" dominant-baseline="middle" opacity="0">Convergência
+                        <animate attributeName="opacity" values="0;1" dur="0.5s" begin="2.8s" fill="freeze" />
+                    </text>
+                 </svg>
+            </div>
+
+             <!-- Grid de Sinergias e Conflitos, AJUSTE: my-16 para my-12 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 my-12">
+                <!-- IA + Sustentabilidade (Enriquecido) -->
+                <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6" data-aos="fade-up" data-aos-delay="200">
+                     <h3 class="text-xl font-bold mb-4 text-blue-600 flex items-center">
+                        <i data-lucide="circle-plus" class="w-5 h-5 mr-2"></i>
+                        IA + Sustentabilidade (ESG)
+                    </h3>
+                    <ul class="space-y-3 text-gray-700">
+                         <li class="flex">
+                            <i data-lucide="check" class="w-5 h-5 mr-2 text-green-500 flex-shrink-0"></i>
+                            <span>Otimização de recursos (energia, água), cadeias de suprimentos e redução de desperdícios via análise de dados.</span>
+                        </li>
+                        <li class="flex">
+                            <i data-lucide="check" class="w-5 h-5 mr-2 text-green-500 flex-shrink-0"></i>
+                            <span>Modelagem climática avançada, previsão de riscos e monitoramento ambiental (desmatamento, biodiversidade).</span>
+                        </li>
+                         <li class="flex">
+                            <i data-lucide="check" class="w-5 h-5 mr-2 text-green-500 flex-shrink-0"></i>
+                            <span>Automação da coleta, análise e reporte de dados ESG, aumentando eficiência e transparência.</span>
+                        </li>
+                         <li class="flex">
+                            <i data-lucide="check" class="w-5 h-5 mr-2 text-green-500 flex-shrink-0"></i>
+                            <span>Desenvolvimento de materiais e soluções sustentáveis acelerado por IA.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- IA + Criatividade -->
+                <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6" data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="text-xl font-bold mb-4 text-amber-600 flex items-center">
+                        <i data-lucide="circle-plus" class="w-5 h-5 mr-2"></i>
+                        IA + Criatividade
+                    </h3>
+                     <ul class="space-y-3 text-gray-700">
+                        <li class="flex">
+                            <i data-lucide="check" class="w-5 h-5 mr-2 text-green-500 flex-shrink-0"></i>
+                            <span>IA como ferramenta de ideação, prototipagem rápida e assistente de execução para criadores.</span>
+                        </li>
+                        <li class="flex">
+                            <i data-lucide="check" class="w-5 h-5 mr-2 text-green-500 flex-shrink-0"></i>
+                            <span>Personalização em escala de conteúdo e experiências criativas.</span>
+                        </li>
+                        <li class="flex">
+                            <i data-lucide="check" class="w-5 h-5 mr-2 text-green-500 flex-shrink-0"></i>
+                            <span>Automação de tarefas criativas repetitivas, liberando tempo para estratégia e originalidade.</span>
+                        </li>
+                        <li class="flex">
+                            <i data-lucide="check" class="w-5 h-5 mr-2 text-green-500 flex-shrink-0"></i>
+                            <span>Emergência de novas formas de arte, design e entretenimento (arte generativa, experiências imersivas).</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Criatividade + Sustentabilidade (Enriquecido) -->
+                 <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6" data-aos="fade-up" data-aos-delay="400">
+                     <h3 class="text-xl font-bold mb-4 text-green-600 flex items-center">
+                        <i data-lucide="circle-plus" class="w-5 h-5 mr-2"></i>
+                        Criatividade + Sustentabilidade (ESG)
+                    </h3>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex">
+                            <i data-lucide="check" class="w-5 h-5 mr-2 text-green-500 flex-shrink-0"></i>
+                            <span>Design de produtos, serviços e modelos de negócio com foco em economia circular, durabilidade e impacto social.</span>
+                        </li>
+                         <li class="flex">
+                            <i data-lucide="check" class="w-5 h-5 mr-2 text-green-500 flex-shrink-0"></i>
+                            <span>Comunicação e storytelling inovadores para engajar stakeholders (clientes, colaboradores, investidores) em pautas ESG.</span>
+                        </li>
+                        <li class="flex">
+                            <i data-lucide="check" class="w-5 h-5 mr-2 text-green-500 flex-shrink-0"></i>
+                            <span>Desenvolvimento de soluções criativas para desafios socioambientais (upcycling, agricultura urbana regenerativa, bio-materiais).</span>
+                        </li>
+                         <li class="flex">
+                            <i data-lucide="check" class="w-5 h-5 mr-2 text-green-500 flex-shrink-0"></i>
+                            <span>Criação de experiências e marcas autênticas que conectam propósito ESG com o público.</span>
+                        </li>
+                    </ul>
+                 </div>
+
+                <!-- Potenciais Conflitos (Significativamente Enriquecido) -->
+                 <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6" data-aos="fade-up" data-aos-delay="500">
+                    <h3 class="text-xl font-bold mb-4 text-purple-600 flex items-center">
+                        <i data-lucide="alert-triangle" class="w-5 h-5 mr-2"></i>
+                        Tensões e Riscos na Convergência
+                    </h3>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex">
+                            <i data-lucide="alert-circle" class="w-5 h-5 mr-2 text-amber-500 flex-shrink-0"></i>
+                            <span>**Pegada Ambiental da IA:** Alto consumo de energia e água para treinamento de LLMs e operação de data centers versus metas de sustentabilidade.</span>
+                        </li>
+                        <li class="flex">
+                             <i data-lucide="alert-circle" class="w-5 h-5 mr-2 text-amber-500 flex-shrink-0"></i>
+                            <span>**Viés e Ética na IA:** Risco de IA perpetuar ou amplificar vieses sociais em decisões automatizadas (contratação, crédito, etc.), conflitando com o 'S' do ESG.</span>
+                        </li>
+                         <li class="flex">
+                            <i data-lucide="alert-circle" class="w-5 h-5 mr-2 text-amber-500 flex-shrink-0"></i>
+                            <span>**Greenwashing/ESG-Washing:** Uso superficial de IA ou comunicação criativa para gerar uma falsa imagem de sustentabilidade/ESG, sem impacto real.</span>
+                        </li>
+                         <li class="flex">
+                            <i data-lucide="alert-circle" class="w-5 h-5 mr-2 text-amber-500 flex-shrink-0"></i>
+                            <span>**Propriedade Intelectual e Autenticidade:** Desafios de direitos autorais com conteúdo gerado por IA e a desvalorização potencial da criatividade humana original.</span>
+                        </li>
+                         <li class="flex">
+                            <i data-lucide="alert-circle" class="w-5 h-5 mr-2 text-amber-500 flex-shrink-0"></i>
+                            <span>**Foco ESG vs. Sustentabilidade Sistêmica:** Risco de empresas priorizarem apenas o ESG material para o negócio, ignorando desafios socioambientais mais amplos, porém menos 'lucrativos'. [3]</span>
+                        </li>
+                    </ul>
+                 </div>
+            </div>
+
+            <!-- Bloco "A Tríade em Ação" -->
+             <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-8 my-16" data-aos="fade-up" data-aos-delay="600">
+                  <div class="max-w-3xl mx-auto">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center mr-4">
+                            <i data-lucide="zap" class="w-6 h-6 text-purple-600"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold">A Tríade em Ação: Exemplos de Convergência</h3>
+                    </div>
+                     <div class="space-y-6">
+                        <div class="flex">
+                            <div class="w-1 bg-purple-200 rounded mr-4 flex-shrink-0"></div>
+                            <div>
+                                <h4 class="text-lg font-semibold mb-2">Cidades Inteligentes e Sustentáveis</h4>
+                                <p class="text-gray-700">IA (IA) otimiza tráfego e energia, enquanto design criativo (Crea) cria espaços verdes e inclusivos, alinhados a metas ESG (Sust).</p>
+                            </div>
+                        </div>
+                         <div class="flex">
+                            <div class="w-1 bg-purple-200 rounded mr-4 flex-shrink-0"></div>
+                            <div>
+                                <h4 class="text-lg font-semibold mb-2">Comunicação ESG Personalizada</h4>
+                                <p class="text-gray-700">IA (IA) segmenta públicos para campanhas criativas (Crea) que engajam sobre práticas e produtos sustentáveis (Sust), aumentando o impacto.</p>
+                            </div>
+                        </div>
+                         <div class="flex">
+                            <div class="w-1 bg-purple-200 rounded mr-4 flex-shrink-0"></div>
+                            <div>
+                                <h4 class="text-lg font-semibold mb-2">Design de Produtos Circulares com IA</h4>
+                                <p class="text-gray-700">IA (IA) ajuda a simular e otimizar o uso de materiais reciclados e o ciclo de vida de produtos inovadores (Crea) focados na economia circular (Sust).</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             </div>
+        </div>
+    </section>
+
+    <!-- Recommendations Section (Enriquecido com base no ESG) -->
+    <section id="recomendacoes" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto mb-16 text-center" data-aos="fade-up">
+                <h2 class="text-3xl font-bold mb-6">Recomendações Estratégicas</h2>
+                <p class="text-xl text-gray-700">Navegando a Confluência: Preparando-se para prosperar na interseção de IA, ESG e Criatividade.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 my-16">
+                 <!-- Para Profissionais -->
+                <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-2 bg-blue-500"></div>
+                    <div class="p-6">
+                        <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mb-4">
+                            <i data-lucide="user" class="w-6 h-6 text-blue-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">Para Profissionais</h3>
+                        <ul class="space-y-4 text-gray-700">
+                            <li class="flex">
+                                <i data-lucide="check-circle" class="w-5 h-5 mr-2 text-blue-500 flex-shrink-0 mt-1"></i>
+                                <span>Invista em *upskilling* contínuo: IA aplicada, **alfabetização em ESG/Green Skills**, pensamento crítico e criatividade.</span>
+                            </li>
+                            <li class="flex">
+                                <i data-lucide="check-circle" class="w-5 h-5 mr-2 text-blue-500 flex-shrink-0 mt-1"></i>
+                                <span>Adote uma mentalidade de aprendizado ágil e experimentação ética com novas tecnologias.</span>
+                            </li>
+                            <li class="flex">
+                                <i data-lucide="check-circle" class="w-5 h-5 mr-2 text-blue-500 flex-shrink-0 mt-1"></i>
+                                <span>Desenvolva habilidades **híbridas**: combine sua expertise com IA e uma compreensão da materialidade ESG do seu setor.</span>
+                            </li>
+                             <li class="flex">
+                                <i data-lucide="check-circle" class="w-5 h-5 mr-2 text-blue-500 flex-shrink-0 mt-1"></i>
+                                <span>Fortaleça inteligência emocional, colaboração e comunicação para navegar em ambientes complexos e multidisciplinares.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Para Empresas -->
+                 <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-2 bg-green-500"></div>
+                     <div class="p-6">
+                         <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center mb-4">
+                             <i data-lucide="building" class="w-6 h-6 text-green-600"></i>
+                         </div>
+                        <h3 class="text-xl font-bold mb-4">Para Empresas</h3>
+                        <ul class="space-y-4 text-gray-700">
+                            <li class="flex">
+                                <i data-lucide="check-circle" class="w-5 h-5 mr-2 text-green-500 flex-shrink-0 mt-1"></i>
+                                <span>**Integre IA, ESG e Criatividade na estratégia central**, superando silos organizacionais.</span>
+                            </li>
+                            <li class="flex">
+                                <i data-lucide="check-circle" class="w-5 h-5 mr-2 text-green-500 flex-shrink-0 mt-1"></i>
+                                <span>Realize **análises de materialidade ESG** robustas e defina metas claras e mensuráveis. [10]</span>
+                            </li>
+                            <li class="flex">
+                                <i data-lucide="check-circle" class="w-5 h-5 mr-2 text-green-500 flex-shrink-0 mt-1"></i>
+                                <span>Fomente uma cultura de inovação responsável, aprendizado contínuo e **uso ético da IA**.</span>
+                            </li>
+                            <li class="flex">
+                                <i data-lucide="check-circle" class="w-5 h-5 mr-2 text-green-500 flex-shrink-0 mt-1"></i>
+                                <span>Invista em talentos diversificados e na **requalificação** da força de trabalho para a tríade IA-ESG-Crea.</span>
+                            </li>
+                             <li class="flex">
+                                <i data-lucide="check-circle" class="w-5 h-5 mr-2 text-green-500 flex-shrink-0 mt-1"></i>
+                                <span>Adote **frameworks de reporte ESG** reconhecidos (GRI, SASB, etc.) e comunique com transparência (evite *greenwashing*). [10, 11]</span>
+                            </li>
+                        </ul>
+                    </div>
+                 </div>
+
+                <!-- Para Instituições -->
+                <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+                     <div class="h-2 bg-amber-500"></div>
+                     <div class="p-6">
+                        <div class="w-12 h-12 rounded-full bg-amber-100 flex items-center justify-center mb-4">
+                            <i data-lucide="landmark" class="w-6 h-6 text-amber-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">Para Instituições</h3>
+                        <ul class="space-y-4 text-gray-700">
+                            <li class="flex">
+                                <i data-lucide="check-circle" class="w-5 h-5 mr-2 text-amber-500 flex-shrink-0 mt-1"></i>
+                                <span>Modernize currículos educacionais: incorporar pensamento computacional, **alfabetização ESG**, ética em IA e criatividade.</span>
+                            </li>
+                             <li class="flex">
+                                <i data-lucide="check-circle" class="w-5 h-5 mr-2 text-amber-500 flex-shrink-0 mt-1"></i>
+                                <span>Crie políticas de incentivo para **qualificação em Green Skills** e transição justa de trabalhadores.</span>
+                            </li>
+                            <li class="flex">
+                                <i data-lucide="check-circle" class="w-5 h-5 mr-2 text-amber-500 flex-shrink-0 mt-1"></i>
+                                <span>Estimule P&D na **interseção IA+Sust+Crea** e apoie a criação de **padrões ESG claros e comparáveis**.</span>
+                            </li>
+                             <li class="flex">
+                                <i data-lucide="check-circle" class="w-5 h-5 mr-2 text-amber-500 flex-shrink-0 mt-1"></i>
+                                <span>Promova infraestrutura digital e energética sustentável e regulamentação para **uso responsável da IA**.</span>
+                            </li>
+                        </ul>
+                    </div>
+                 </div>
+            </div>
+
+            <!-- Conclusão Final -->
+             <div class="max-w-4xl mx-auto my-16" data-aos="fade-up" data-aos-delay="400">
+                <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-8">
+                     <div class="flex items-start">
+                        <svg id="quote-icon" class="w-12 h-12 text-gray-300 mr-6 flex-shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path d="M10 11H6C4.89543 11 4 10.1046 4 9V6C4 4.89543 4.89543 4 6 4H9C10.1046 4 11 4.89543 11 6V19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M20 11H16C14.8954 11 14 10.1046 14 9V6C14 4.89543 14.8954 4 16 4H19C20.1046 4 21 4.89543 21 6V19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <div>
+                            <p class="text-xl italic text-gray-700 mb-6">A confluência da Inteligência Artificial, Sustentabilidade (ESG) e Criatividade não é apenas uma tendência passageira, mas a fundação de um novo paradigma para o trabalho e os negócios. A chave para o sucesso reside na capacidade de cultivar a inteligência colaborativa entre humanos e máquinas, direcionada por um propósito criativo e um compromisso genuíno com a sustentabilidade do nosso planeta e da nossa sociedade, indo além do discurso e focando em impacto real.</p>
+                            <div class="font-semibold text-gray-900">Conclusão do Relatório 2024</div>
+                        </div>
+                    </div>
+                </div>
+             </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="py-20 bg-black text-white">
+        <div class="container mx-auto px-4 text-center" data-aos="fade-up">
+            <h2 class="text-3xl font-bold mb-8">Prepare-se para o Futuro</h2>
+            <p class="text-xl max-w-2xl mx-auto mb-12">Navegue pela transformação. Estamos prontos para ajudar sua organização a integrar IA, ESG e Criatividade de forma estratégica e impactante.</p>
+            <div class="flex flex-col md:flex-row justify-center gap-6">
+                <a href="#!" class="px-8 py-3 bg-white text-black rounded-md hover:bg-gray-200 transition-colors">
+                    <span class="flex items-center justify-center gap-2">
+                        <i data-lucide="calendar" class="w-5 h-5"></i>
+                        <span>Agende uma Consultoria</span>
+                    </span>
+                </a>
+                <a href="#!" class="px-8 py-3 border border-white rounded-md hover:bg-white/10 transition-colors">
+                     <span class="flex items-center justify-center gap-2">
+                        <i data-lucide="file-text" class="w-5 h-5"></i>
+                        <span>Solicite o Relatório Completo</span>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-gray-900 text-gray-400">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+                <div class="mb-6 md:mb-0 text-center md:text-left">
+                    <div class="font-geist-mono text-xl font-medium text-white">RELATÓRIO 2024</div>
+                    <div class="text-sm mt-2">O futuro do trabalho na confluência da IA, Sustentabilidade e Criatividade</div>
+                </div>
+                <div class="flex gap-6">
+                    <a href="#!" aria-label="LinkedIn" class="hover:text-white transition-colors">
+                        <i data-lucide="linkedin" class="w-5 h-5"></i>
+                    </a>
+                    <a href="#!" aria-label="Twitter" class="hover:text-white transition-colors">
+                        <i data-lucide="twitter" class="w-5 h-5"></i>
+                    </a>
+                    <a href="#!" aria-label="Instagram" class="hover:text-white transition-colors">
+                        <i data-lucide="instagram" class="w-5 h-5"></i>
+                    </a>
+                    <a href="#!" aria-label="Email" class="hover:text-white transition-colors">
+                        <i data-lucide="mail" class="w-5 h-5"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+                <div class="text-sm mb-4 md:mb-0">© 2024 Nome da Sua Empresa/Organização - Todos os direitos reservados</div>
+                <!-- Substitua pelo link/nome real se desejar -->
+                <!-- <div class="text-sm">Built with <a href="https://flowith.net" target="_blank" rel="noopener" class="text-white hover:text-gray-300 transition-colors">Flowith Oracle</a>.</div> -->
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal for PDF disclaimer -->
+    <div id="pdf-modal" class="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-[100] hidden p-4" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="bg-white rounded-lg p-8 max-w-md w-full">
+            <div class="flex justify-between items-start mb-4">
+                <h3 id="modal-title" class="text-xl font-bold">Atenção</h3>
+                <button id="close-modal" class="text-gray-500 hover:text-gray-700" aria-label="Fechar modal">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+            <div class="text-gray-700 mb-6">
+                <p>Este é um relatório de demonstração online. A versão completa em PDF incluiria análises mais detalhadas, estudos de caso aprofundados, dados exclusivos e recomendações personalizadas.</p>
+                <p class="mt-4">Para solicitar o relatório completo ou discutir como aplicar esses insights em sua organização, entre em contato conosco.</p>
+            </div>
+            <div class="flex justify-end">
+                <button id="confirm-modal" class="px-6 py-2 bg-black text-white rounded-md hover:bg-gray-800 transition-colors">Entendi</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
